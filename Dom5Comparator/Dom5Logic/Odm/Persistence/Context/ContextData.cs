@@ -23,8 +23,12 @@ public class ContextData : IContext
     {
         string typeName = typeof(T).Name;
 
-        var file = gameDataFiles?.FirstOrDefault(file => file.ToLower().EndsWith($"{typeName.ToLower()}.csv"));
+        var file = gameDataFiles?
+        .Select(file => new FileInfo(file))
+        .FirstOrDefault(file => file.Name.ToLower().Equals($"{typeName.ToLower()}.csv")).FullName;
     
+        // Console.WriteLine($"file {file}");
+        
         if (file is null)
         {
             throw new Exception();    

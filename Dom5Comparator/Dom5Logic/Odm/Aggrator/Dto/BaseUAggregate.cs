@@ -4,14 +4,7 @@ public class BaseUAggregate
 {
     public int id { get; set; }
     public string name { get; set; }
-    IEnumerable<WeaponsAggregate>? weapons { get; set; }
-    // public int? wpn1 { get; set; }
-    // public int? wpn2 { get; set; }
-    // public int? wpn3 { get; set; }
-    // public int? wpn4 { get; set; }
-    // public int? wpn5 { get; set; }
-    // public int? wpn6 { get; set; }
-    // public int? wpn7 { get; set; }
+    public IEnumerable<WeaponsAggregate>? weapons { get; set; }
     public int? armor1 { get; set; }
     public int? armor2 { get; set; }
     public int? armor3 { get; set; }

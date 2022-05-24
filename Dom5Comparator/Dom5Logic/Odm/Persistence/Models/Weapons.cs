@@ -15,4 +15,11 @@ public class Weapons : IModel
     public int rcost { get; set; }
     public int weapon { get; set; }
     public string end { get; set; }
+
+    public static Weapons WeaponNotUsedByUnit() {
+        return new Weapons 
+        {
+            id = 0
+        };
+    }
 }

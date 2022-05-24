@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dom5Tester", "Dom5Tester\Do
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dom5Logic", "Dom5Logic\Dom5Logic.csproj", "{4E670D1B-D914-405D-92EF-C0538B6ACE03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dom5Api", "Dom5Api\Dom5Api.csproj", "{CCAE9B73-7139-4CCA-ACFA-5198FF5CBE8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4E670D1B-D914-405D-92EF-C0538B6ACE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E670D1B-D914-405D-92EF-C0538B6ACE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E670D1B-D914-405D-92EF-C0538B6ACE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCAE9B73-7139-4CCA-ACFA-5198FF5CBE8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCAE9B73-7139-4CCA-ACFA-5198FF5CBE8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCAE9B73-7139-4CCA-ACFA-5198FF5CBE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCAE9B73-7139-4CCA-ACFA-5198FF5CBE8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
