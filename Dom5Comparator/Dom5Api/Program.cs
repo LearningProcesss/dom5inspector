@@ -5,6 +5,7 @@ using Dom5Logic.Odm.Mapper;
 using Dom5Logic.Odm.Persistence.Context;
 using Dom5Logic.Odm.Persistence.Models;
 using Dom5Logic.Odm.Persistence.Repository;
+using Dom5Logic.Logic;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,7 @@ builder.Services.AddSingleton<IMapping, Mapping>();
 builder.Services.AddSingleton(typeof(IGenericRepository<>), typeof(GenericCsvRepository<>));
 builder.Services.AddSingleton<IGenericBuilder<WeaponsAggregate>, WeaponBuilder>();
 builder.Services.AddSingleton<IGenericBuilder<BaseUAggregate>, BaseUBuilder>();
-
+builder.Services.AddSingleton<IModelComparer, ModelComparer>();
 
 var app = builder.Build();
 
@@ -41,7 +42,7 @@ app.MapGet("/units", (IGenericRepository<BaseU> repository, IGenericBuilder<Base
     return Results.Json(repository.Get().Select(baseU => builder.Build(baseU.id)).Take(10));
 });
 
-app.MapGet("/units/{leftId}/compare/{rightId}", (int leftId, int rightId, IGenericBuilder<BaseUAggregate> baseUBuilder) =>
+app.MapGet("/units/{leftId}/compare/{rightId}", (int leftId, int rightId, [FromServices] IGenericBuilder<BaseUAggregate> baseUBuilder, [FromServices] IModelComparer comparer) =>
 {
     var leftUnit = baseUBuilder.Build(leftId);
 
@@ -57,9 +58,9 @@ app.MapGet("/units/{leftId}/compare/{rightId}", (int leftId, int rightId, IGener
         return Results.NotFound();
     }
 
-    
+    IEnumerable<Variance> variations = comparer.Compare<BaseUAggregate>(leftUnit, rightUnit, "id", "name");
 
-    return Results.Json("");
+    return Results.Json(variations);
 });
 
 app.Run();

@@ -65,7 +65,7 @@ public class IGenericAggregatorTest
         
         BaseUAggregate baseUAggregate = builder.Build(1);
 
-        Console.WriteLine(ObjectDumper.Dump(baseUAggregate));
+        // Console.WriteLine(ObjectDumper.Dump(baseUAggregate));
 
         baseURepoStub.Verify(stub => stub.GetById(It.Is<int>(p => p == 1)), Times.Exactly(1));
 
@@ -129,7 +129,7 @@ public class IGenericAggregatorTest
 
         BaseUAggregate baseUAggregate = builder.Build(1);
 
-        Console.WriteLine(ObjectDumper.Dump(baseUAggregate));
+        // Console.WriteLine(ObjectDumper.Dump(baseUAggregate));
 
         baseURepoStub.Verify(stub => stub.GetById(It.Is<int>(p => p == 1)), Times.Exactly(1));
 
